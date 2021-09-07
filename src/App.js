@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+import React from "react";
+import ReactDOM from "react-dom";
+import KanbanBoard from "../app/KanbanBoard";
+let cardsList = [
+  {
+    id: 1,
+    title: "Read the Book",
+    description: "I should read the whole book",
+    status: "in-progress",
+    tasks: [],
+  },
+  {
+    id: 2,
+    title: "Write some code",
+    description: "Code along with the samples in the book",
+    status: "todo",
+    tasks: [
+      {
+        id: 1,
+        name: "ContactList Example",
+        done: true,
+      },
+      {
+        id: 2,
+        name: "Kanban Example",
+        done: false,
+      },
+      {
+        id: 3,
+        name: "My own experiments",
+        done: false,
+      },
+    ],
+  },
+];
+ReactDOM.render(
+  <KanbanBoard cards={cardsList} />,
+  document.getElementById("root")
+);
